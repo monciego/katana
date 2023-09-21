@@ -25,24 +25,21 @@
     </script>
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+<body class="font-sans antialiased bg-[#F0F4F8] dark:bg-[#0C0E13]">
+    <div class="flex h-screen overflow-hidden">
+        <x-app.sidebar />
+        <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+            <x-app.header />
+            <!-- Page Content -->
+            <main>
+                <div class="px-4 sm:px-6 py-24 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+                    {{ $slot }}
+                </div>
+            </main>
+        </div>
     </div>
+
+    @stack('scripts')
 </body>
 
 </html>
